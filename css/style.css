@@ -2664,6 +2664,14 @@ article#tag .all-tags ul li span:before {
   color: var(--color-p);
   word-wrap: break-word;
 }
+.article .headimg {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.article img {
+  box-shadow: 1px 1px 10px -6px #3e3c3c;
+  border-radius: 8px;
+}
 .article a {
   word-break: break-word;
 }
