@@ -21,9 +21,11 @@
   
   <title>Hexo搭建前端博客 - Asen-Blog</title>
   
-    <meta name="keywords" content="前端">
+    <meta name="keywords" content="Hexo,Hexo教程,Hexo绑定域名,2020Hexo,2020Hexo教程,Hexo绑定域名,Hexo安装,Hexo搭建博客,2020Hexo搭建博客">
   
 
+  
+    <meta name="description" content="这是一个关于Hexo从安装、部署、绑定阿里云域名等一系列指南。">
   
 
   <!-- feed -->
@@ -313,6 +315,12 @@
 
 
   
+    <div class='headimg-div'>
+      <a class='headimg-a'>
+        <img class='headimg' src='https://asenblog.oss-cn-guangzhou.aliyuncs.com/hexoLogo.jpg'/>
+      </a>
+    </div>
+  
   <div class="article-meta" id="top">
     
     
@@ -378,12 +386,12 @@
 
   
   <h2 id="初探Hexo"><a href="#初探Hexo" class="headerlink" title="初探Hexo"></a>初探Hexo</h2><p>Hexo是一个可以解析markdown语法的静态博客框架。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="nodejs的安装"><a href="#nodejs的安装" class="headerlink" title="nodejs的安装"></a>nodejs的安装</h3><p>因为Hexo是基于node,所以需要先安装node和npm,这里建议直接安装nvm去管理node和npm,然后再去安装cnpm,cnpm是使用了淘宝镜像服务的npm,安装了之后，下载包的速度会大大提升（因为访问的是大陆的服务器，npm的服务器在国外。）</p>
+<h2 id="安装NodeJs"><a href="#安装NodeJs" class="headerlink" title="安装NodeJs"></a>安装NodeJs</h2><p>因为Hexo是基于node,所以需要先安装node和npm,这里建议直接安装nvm去管理node和npm,然后再去安装cnpm,cnpm是使用了淘宝镜像服务的npm,安装了之后，下载包的速度会大大提升,因为访问的是大陆的服务器，npm的服务器在国外。</p>
 <ul>
 <li>nvm的安装教程</li>
 <li>cnpm安装教程</li>
 </ul>
-<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>安装Hexo-cli</p>
+<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>安装Hexo-cli,Hexo-cli是hexo的一个官方命令工具。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 
 <p>初始化Hexo项目</p>
@@ -394,29 +402,30 @@
 <p>安装依赖</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install</span><br></pre></td></tr></table></figure>
 <p>本地运行并预览</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br><span class="line">&#x2F;&#x2F; 运行完后即可预览http:&#x2F;&#x2F;localhost:4001</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br><span class="line">&#x2F;&#x2F; 运行完后即可预览http:&#x2F;&#x2F;localhost:4000</span><br></pre></td></tr></table></figure>
 
 <p>到这,hexo就安装成功并可本地运行了。</p>
-<h2 id="修改仓库名称"><a href="#修改仓库名称" class="headerlink" title="修改仓库名称"></a>修改仓库名称</h2><p>在仓库首页找到setting,这里我们修改为blog,你也可以修改为其他名称。<br><img src="https://asenblog.oss-cn-guangzhou.aliyuncs.com/repname.png" class="lazyload" data-srcset="https://asenblog.oss-cn-guangzhou.aliyuncs.com/repname.png" srcset="data:image/png;base64,666"></p>
 <h2 id="部署Hexo到Github-Page"><a href="#部署Hexo到Github-Page" class="headerlink" title="部署Hexo到Github Page"></a>部署Hexo到Github Page</h2><h3 id="创建仓库并设置默认分支为master"><a href="#创建仓库并设置默认分支为master" class="headerlink" title="创建仓库并设置默认分支为master"></a>创建仓库并设置默认分支为master</h3><p><img src="https://asenblog.oss-cn-guangzhou.aliyuncs.com/createRepDetails-min.png" class="lazyload" data-srcset="https://asenblog.oss-cn-guangzhou.aliyuncs.com/createRepDetails-min.png" srcset="data:image/png;base64,666"><br>设置默认分支为master<br><img src="https://asenblog.oss-cn-guangzhou.aliyuncs.com/setdefaultBranch-min.png" class="lazyload" data-srcset="https://asenblog.oss-cn-guangzhou.aliyuncs.com/setdefaultBranch-min.png" srcset="data:image/png;base64,666"></p>
-<h3 id="仓库设置为Github-Page"><a href="#仓库设置为Github-Page" class="headerlink" title="仓库设置为Github Page"></a>仓库设置为Github Page</h3><p>在选中的仓库中进入<strong>setting</strong></p>
+<h3 id="修改仓库名称"><a href="#修改仓库名称" class="headerlink" title="修改仓库名称"></a>修改仓库名称</h3><p>在Github的仓库首页找到setting,这里我们修改为blog,你也可以修改为其他名称。<br><img src="https://asenblog.oss-cn-guangzhou.aliyuncs.com/repname.png" class="lazyload" data-srcset="https://asenblog.oss-cn-guangzhou.aliyuncs.com/repname.png" srcset="data:image/png;base64,666"></p>
+<h3 id="Github仓库升级为Github-Page"><a href="#Github仓库升级为Github-Page" class="headerlink" title="Github仓库升级为Github Page"></a>Github仓库升级为Github Page</h3><p>在选中的仓库中进入<strong>setting</strong></p>
 <p><img src="https://asenblog.oss-cn-guangzhou.aliyuncs.com/setting-min.png" class="lazyload" data-srcset="https://asenblog.oss-cn-guangzhou.aliyuncs.com/setting-min.png" srcset="data:image/png;base64,666"></p>
-<p>在seting页面找到开通Github Page的配置</p>
+<p>在seting页面找到开通Github Page的配置,点击<strong>Upgrade</strong></p>
 <p><img src="https://asenblog.oss-cn-guangzhou.aliyuncs.com/upgradeGitHubPage-min.png" class="lazyload" data-srcset="https://asenblog.oss-cn-guangzhou.aliyuncs.com/upgradeGitHubPage-min.png" srcset="data:image/png;base64,666"></p>
 <p>开通后当前页面会刷新,往下滚动,分支选中<strong>master</strong>然后点击<strong>save</strong></p>
 <p><img src="https://asenblog.oss-cn-guangzhou.aliyuncs.com/repname-min.png" class="lazyload" data-srcset="https://asenblog.oss-cn-guangzhou.aliyuncs.com/repname-min.png" srcset="data:image/png;base64,666"></p>
 <p>到这里,Github Page 就配置好了</p>
-<h3 id="验证Github-Page"><a href="#验证Github-Page" class="headerlink" title="验证Github Page"></a>验证Github Page</h3><p>在仓库主页上添加index.html</p>
+<h3 id="验证Github-Page"><a href="#验证Github-Page" class="headerlink" title="验证Github Page"></a>验证Github Page</h3><p>在Github仓库主页上添加index.html</p>
 <p><img src="https://asenblog.oss-cn-guangzhou.aliyuncs.com/newHtml-min.png" class="lazyload" data-srcset="https://asenblog.oss-cn-guangzhou.aliyuncs.com/newHtml-min.png" srcset="data:image/png;base64,666"><br><img src="https://asenblog.oss-cn-guangzhou.aliyuncs.com/createHtml-min.png" class="lazyload" data-srcset="https://asenblog.oss-cn-guangzhou.aliyuncs.com/createHtml-min.png" srcset="data:image/png;base64,666"><br><img src="https://asenblog.oss-cn-guangzhou.aliyuncs.com/createSure-min.png" class="lazyload" data-srcset="https://asenblog.oss-cn-guangzhou.aliyuncs.com/createSure-min.png" srcset="data:image/png;base64,666"></p>
 <p>GitHub Page的域名可以在setting的GitHub Page的设置项中找到</p>
 <p><img src="https://asenblog.oss-cn-guangzhou.aliyuncs.com/GitHubPagesDomain-min.png" class="lazyload" data-srcset="https://asenblog.oss-cn-guangzhou.aliyuncs.com/GitHubPagesDomain-min.png" srcset="data:image/png;base64,666"></p>
-<p>然后输入你的Github Page网址,我这里的地址是:<a target="_blank" rel="noopener" href="https://asenweb.github.io/blog/index.html">https://asenweb.github.io/blog/index.html</a> ,请根据自身的GitHub Pages地址进行调整。</p>
+<p>然后输入你的Github Page网址,我这里的地址是:<a target="_blank" rel="noopener" href="https://asenweb.github.io/blog/index.html">https://asenweb.github.io/blog/index.html</a> ,请根据自身的GitHub Pages地址进行访问。</p>
 <p><img src="https://asenblog.oss-cn-guangzhou.aliyuncs.com/privew-min.png" class="lazyload" data-srcset="https://asenblog.oss-cn-guangzhou.aliyuncs.com/privew-min.png" srcset="data:image/png;base64,666"></p>
 <blockquote>
 <p><strong>注意:Github Pages 已经被墙了，如果没有自己的域名的话，只能用梯子访问。</strong></p>
 </blockquote>
 <h3 id="部署到Github-Page"><a href="#部署到Github-Page" class="headerlink" title="部署到Github Page"></a>部署到Github Page</h3><p>在hexo生成的根目录中找到_config.yml添加以下配置:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">url: http:&#x2F;&#x2F;asen.github.io&#x2F;blog&#x2F;    &#x2F;&#x2F;设置成你自己的GitHubPage地址</span><br><span class="line">root: &#x2F;blog&#x2F;                        &#x2F;&#x2F;设置成你的仓库名称</span><br><span class="line"></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo:</span><br><span class="line">    github: https:&#x2F;&#x2F;github.com&#x2F;AsenLins&#x2F;asen.github.io.git &#x2F;&#x2F;这里要设置成你自己的仓库地址</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>url:就是自己的GitHubPage地址</li>
 <li>root:就是自己的仓库名称</li>
@@ -426,6 +435,7 @@
 </ul>
 <p>配置完后在你的hexo根目录中执行以下命令即可发布到github中：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+
 <h3 id="自定义Github-Page域名"><a href="#自定义Github-Page域名" class="headerlink" title="自定义Github Page域名"></a>自定义Github Page域名</h3><ol>
 <li><p>在阿里云购买域名并解析到GitHub Page的域名,解析域名等阿里云和网上都有教程，这里就不复述了。</p>
 </li>
@@ -452,6 +462,7 @@
 <li>hexo g -w 本地即时构建</li>
 <li>hexo g -d 构建并部署到远程服务器</li>
 </ul>
+<h2 id="end"><a href="#end" class="headerlink" title="end"></a>end</h2><p>如有问题,可在下方留言,本人会积极回答。</p>
 
   
   
@@ -488,7 +499,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-13T15:22:00+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-13T17:05:10+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2020年11月13日</p>
@@ -567,7 +578,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E6%8E%A2Hexo"><span class="toc-text">初探Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#nodejs%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-text">nodejs的安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85hexo"><span class="toc-text">安装hexo</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E5%90%8D%E7%A7%B0"><span class="toc-text">修改仓库名称</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2Hexo%E5%88%B0Github-Page"><span class="toc-text">部署Hexo到Github Page</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93%E5%B9%B6%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E5%88%86%E6%94%AF%E4%B8%BAmaster"><span class="toc-text">创建仓库并设置默认分支为master</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%93%E5%BA%93%E8%AE%BE%E7%BD%AE%E4%B8%BAGithub-Page"><span class="toc-text">仓库设置为Github Page</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81Github-Page"><span class="toc-text">验证Github Page</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0Github-Page"><span class="toc-text">部署到Github Page</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89Github-Page%E5%9F%9F%E5%90%8D"><span class="toc-text">自定义Github Page域名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8Hexo%E5%91%BD%E4%BB%A4"><span class="toc-text">常用Hexo命令</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E6%8E%A2Hexo"><span class="toc-text">初探Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85NodeJs"><span class="toc-text">安装NodeJs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85hexo"><span class="toc-text">安装hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2Hexo%E5%88%B0Github-Page"><span class="toc-text">部署Hexo到Github Page</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93%E5%B9%B6%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E5%88%86%E6%94%AF%E4%B8%BAmaster"><span class="toc-text">创建仓库并设置默认分支为master</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93%E5%90%8D%E7%A7%B0"><span class="toc-text">修改仓库名称</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Github%E4%BB%93%E5%BA%93%E5%8D%87%E7%BA%A7%E4%B8%BAGithub-Page"><span class="toc-text">Github仓库升级为Github Page</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81Github-Page"><span class="toc-text">验证Github Page</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0Github-Page"><span class="toc-text">部署到Github Page</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89Github-Page%E5%9F%9F%E5%90%8D"><span class="toc-text">自定义Github Page域名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8Hexo%E5%91%BD%E4%BB%A4"><span class="toc-text">常用Hexo命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#end"><span class="toc-text">end</span></a></li></ol>
     </div>
   </section>
 
