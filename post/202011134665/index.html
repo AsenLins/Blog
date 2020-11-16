@@ -390,31 +390,53 @@
 <h2 id="nvm安装和配置"><a href="#nvm安装和配置" class="headerlink" title="nvm安装和配置"></a>nvm安装和配置</h2><ol>
 <li><a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">找到nvm-noinstall.zip然后下载</a></li>
 <li>解压nvm-noinstall.zip</li>
-<li>点击install.cmd,然后会要你输入路径,直接回车就好。</li>
-<li>找到解压的nvm路径,新建一个settings.txt文本,文本内容如下所示：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root: E:\DevelopSoftware\NVM</span><br><span class="line">path: E:\DevelopSoftware\NodeJs </span><br><span class="line">arch: 32 </span><br><span class="line">proxy: none</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>进入到解压的目录</li>
+<li>找到并运行install.cmd,然后会要你输入路径,直接回车就好。</li>
+<li>新建一个settings.txt文本,文本内容如下所示：</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">root: E:\DevelopSoftware\NVM</span><br><span class="line">path: E:\DevelopSoftware\NodeJs </span><br><span class="line">arch: 32 </span><br><span class="line">proxy: none</span><br><span class="line">node_mirror: https:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;node&#x2F;</span><br><span class="line">npm_mirror: https:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;npm&#x2F;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>保存即可。</p>
 <ul>
 <li>root:就是你解压nvm的所在路径,也就是nvm的根目录。</li>
 <li>path:就是用于存储当前使用NodeJs的版本路径（自己选择存放在哪里）。</li>
 <li>arch:系统是32位就填32,64就填64。</li>
 <li>proxy:代理,没有就填none。</li>
+<li>node_mirror:设置安装node的镜像地址,这里设置为淘宝的镜像地址,加快下载node的速度</li>
+<li>npm_mirror:设置安装npm的镜像地址,这里设置为淘宝的镜像地址,加快下载npm的速度</li>
 </ul>
 <ol start="5">
-<li><p>安装好后,打开系统<strong>环境变量</strong>设置,在<strong>系统变量</strong>中找到<strong>NVM_HOME</strong>，把值设置为settings的root值,然后再找到<strong>NVM_SYMLINK</strong>,把值设置为settings的path的值,再找到path变量,添加 <strong>;%NVM_HOME%;%NVM_SYMLINK%;</strong></p>
-</li>
-<li><p>打开CMD命令,输入<strong>nvm v</strong> 查看版本,如果有版本信息，则代表安装成功。</p>
-</li>
+<li>安装好后,打开系统<strong>环境变量</strong>设置,在<strong>系统变量</strong>中新建<strong>NVM_HOME</strong>，把值设置为settings.txt的root值,然后再新建<strong>NVM_SYMLINK</strong>,把值设置为settings.txt的path的值,再找到path变量,添加 <strong>;%NVM_HOME%;%NVM_SYMLINK%;</strong></li>
+</ol>
+<blockquote>
+<p>上面是win10的环境变量设置,win7的请去找相对应的设置教程。</p>
+</blockquote>
+<ol start="6">
+<li>打开CMD命令行工具,输入<strong>nvm v</strong> 查看版本,如果有版本信息，则代表安装成功。</li>
 </ol>
 <h2 id="使用nvm安装NodeJs"><a href="#使用nvm安装NodeJs" class="headerlink" title="使用nvm安装NodeJs"></a>使用nvm安装NodeJs</h2><ol>
-<li>打开CMD命令管理器，切换到NVM的Root的Path中</li>
-<li>输入以下命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install 4.4.4 32</span><br></pre></td></tr></table></figure>
-安装32位版本为4.4.4的NodeJs，如果你是32位系统切记要输入32,不然默认是安装64位的NodeJs</li>
-<li>再输入以下指令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm use 4.4.4 32</span><br></pre></td></tr></table></figure>
-当前使用NodeJs版本为4.4.4系统版本为32位,如果你是32位系统就一定要输入32。</li>
+<li>打开CMD命令管理器</li>
+<li>输入以下命令安装nodejs：</li>
 </ol>
-<p>4.然后再输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install 4.4.4</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上面只是安装一个示例版本,若要安装指定版本,可以在下面两个Node官方网站中找到需要的版本号即可。</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://nodejs.cn/download/">http://nodejs.cn/download/</a> </li>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/en/">https://nodejs.org/en/</a></li>
+</ul>
+<ol start="3">
+<li>再输入以下指令切换到当前node的使用版本为4.4.4：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm use 4.4.4</span><br></pre></td></tr></table></figure>
+
+
+<ol start="4">
+<li>然后再输入验证以下指令查看NodeJs版本信息,如有版本信息显示,则切换版本成功：</li>
+</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v </span><br></pre></td></tr></table></figure>
-<p>查看NodeJs版本信息,如有版本信息显示,则切换版本成功。</p>
+
+
 <ol start="5">
 <li>至此，nvm安装配置与NodeJs的版本切换已可正常运行。</li>
 </ol>
@@ -422,9 +444,17 @@
 <ul>
 <li><p>如果你之前已经安装过nodeJs版本,请先删除之前的NodeJs,再删除在环境变量中的对应的路径。</p>
 </li>
-<li><p>nvm的配置是根据settings.txt文件来执行的,++root++就是当前nvm的执行路径,所下载的node版本都会在这里面,++path++就是当前使用的node的路径,每当你使用++nvm use x.x.x++指令的时候就会把对应的nodeJs版本放入该目录中，所以，如果需要目录变动,只需要修改settings.txt里配置即可。</p>
+<li><p>nvm的配置是根据settings.txt文件来执行的,<strong>root</strong>就是当前nvm的执行路径,所下载的node版本都会在这里面,<strong>path</strong>就是当前使用的node的路径,每当你使用<strong>nvm use x.x.x</strong>指令的时候就会把对应的nodeJs版本放入该目录中，所以，如果需要目录变动,只需要修改settings.txt里配置即可。</p>
+</li>
+<li><p>若你的系统为32位,请在安装和使用的指令中加入以下参数</p>
+<blockquote>
+<p>nvm install 4.4.4 32</p>
+</blockquote>
 </li>
 </ul>
+<blockquote>
+<p>nvm use 4.4.4 32</p>
+</blockquote>
 <hr>
 <h2 id="nvm常用命令"><a href="#nvm常用命令" class="headerlink" title="nvm常用命令"></a>nvm常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nvm -v &#x2F;&#x2F;查看nvm使用命令。</span><br><span class="line">nvm v &#x2F;&#x2F;查看nvm版本信息。</span><br><span class="line">nvm install x.x.x 32 &#x2F;&#x2F;安装NodeJs版本。</span><br><span class="line">nvm use x.x.x 32  &#x2F;&#x2F;切换nodeJs版本。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -465,10 +495,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-13T18:07:19+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-16T11:19:51+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年11月13日</p>
+    <p>更新于：2020年11月16日</p>
   </a>
 </div>
 
