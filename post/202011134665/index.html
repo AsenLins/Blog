@@ -394,7 +394,7 @@
 <li>找到并运行install.cmd,然后会要你输入路径,直接回车就好。</li>
 <li>新建一个settings.txt文本,文本内容如下所示：</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">root: E:\DevelopSoftware\NVM</span><br><span class="line">path: E:\DevelopSoftware\NodeJs </span><br><span class="line">arch: 32 </span><br><span class="line">proxy: none</span><br><span class="line">node_mirror: https:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;node&#x2F;</span><br><span class="line">npm_mirror: https:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;npm&#x2F;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root: E:\DevelopSoftware\NVM</span><br><span class="line">path: E:\DevelopSoftware\NodeJs </span><br><span class="line">arch: 32 </span><br><span class="line">proxy: none</span><br><span class="line">node_mirror: https:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;node&#x2F;</span><br><span class="line">npm_mirror: https:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;npm&#x2F;</span><br></pre></td></tr></table></figure>
 <p>保存即可。</p>
 <ul>
 <li>root:就是你解压nvm的所在路径,也就是nvm的根目录。</li>
@@ -448,15 +448,12 @@
 </li>
 <li><p>若你的系统为32位,请在安装和使用的指令中加入以下参数</p>
 <blockquote>
-<p>nvm install 4.4.4 32</p>
+<p>nvm install 4.4.4 32  //32代表是系统32位的意思</p>
 </blockquote>
 </li>
 </ul>
-<blockquote>
-<p>nvm use 4.4.4 32</p>
-</blockquote>
 <hr>
-<h2 id="nvm常用命令"><a href="#nvm常用命令" class="headerlink" title="nvm常用命令"></a>nvm常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nvm -v &#x2F;&#x2F;查看nvm使用命令。</span><br><span class="line">nvm v &#x2F;&#x2F;查看nvm版本信息。</span><br><span class="line">nvm install x.x.x 32 &#x2F;&#x2F;安装NodeJs版本。</span><br><span class="line">nvm use x.x.x 32  &#x2F;&#x2F;切换nodeJs版本。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="nvm常用命令"><a href="#nvm常用命令" class="headerlink" title="nvm常用命令"></a>nvm常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nvm -v &#x2F;&#x2F;查看nvm使用命令。</span><br><span class="line">nvm v &#x2F;&#x2F;查看nvm版本信息。</span><br><span class="line">nvm install x.x.x 32 &#x2F;&#x2F;安装NodeJs版本。</span><br><span class="line">nvm use x.x.x 32  &#x2F;&#x2F;切换nodeJs版本。</span><br></pre></td></tr></table></figure>
 
 <h2 id="MAC教程"><a href="#MAC教程" class="headerlink" title="MAC教程"></a>MAC教程</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/622ad36ee020">https://www.jianshu.com/p/622ad36ee020</a></p>
 
@@ -495,7 +492,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-16T11:19:51+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-16T13:10:24+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2020年11月16日</p>
@@ -540,7 +537,8 @@
       
         <a class='prev' href='/post/2020111349537/'>
           <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>cnpm安装教程</p>
-          <p class='content'></p>
+          <p class='content'>cnpm是什么？cnpm是阿里巴巴开发的一个包含国内镜像源的npm,使用cnpm可以快速下载npm上的包。
+安装cnpm1npm install -g cnpm --registry&#x3D;...</p>
         </a>
       
       
