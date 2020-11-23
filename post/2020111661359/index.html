@@ -19,13 +19,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>cnpm安装教程 - Asen-Blog</title>
+  <title>移动端适配 - Asen-Blog</title>
   
-    <meta name="keywords" content="cnpm,cnpm安装,cnpm教程">
+    <meta name="keywords" content="2020移动端适配,2020移动端基础概念,dpr,ppi,物理像素,逻辑像素,适配方案,h5适配方案,移动端适配方案,rem">
   
 
   
-    <meta name="description" content="看完本文后,你将学会使用cnpm提速下载nodeJs包的速度">
+    <meta name="description" content="本文内容包括:物理像素,逻辑像素,dpr,ppi,移动适配方案。">
   
 
   <!-- feed -->
@@ -317,7 +317,7 @@
   
     <div class='headimg-div'>
       <a class='headimg-a'>
-        <img class='headimg' src='https://asenblog.oss-cn-guangzhou.aliyuncs.com/logo.png'/>
+        <img class='headimg' src='https://asenblog.oss-cn-guangzhou.aliyuncs.com/phone-banner-min.png'/>
       </a>
     </div>
   
@@ -326,7 +326,7 @@
     
     
       <h1 class="title">
-        cnpm安装教程
+        移动端适配方案
       </h1>
       <div class='new-meta-box'>
         
@@ -346,7 +346,7 @@
   <div class='new-meta-item category'>
     <a class='notlink'>
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/categories/NodeJs/">NodeJs</a>
+      <a class="category-link" href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a>
     </a>
   </div>
 
@@ -357,7 +357,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年11月13日</p>
+    <p>发布于：2020年11月16日</p>
   </a>
 </div>
 
@@ -368,7 +368,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="cnpm安装教程" data-path="/post/2020111349537/">
+      <div id="lc-pv" data-title="移动端适配方案" data-path="/post/2020111661359/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -386,12 +386,108 @@
 
   
   
-  <h2 id="cnpm是什么？"><a href="#cnpm是什么？" class="headerlink" title="cnpm是什么？"></a>cnpm是什么？</h2><p>cnpm是阿里巴巴开发的一个包含国内镜像源的npm,使用cnpm可以快速下载npm上的包。</p>
-<h2 id="安装cnpm"><a href="#安装cnpm" class="headerlink" title="安装cnpm"></a>安装cnpm</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+  <h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><h3 id="物理像素"><a href="#物理像素" class="headerlink" title="物理像素"></a>物理像素</h3><p>物理像素也可以叫做<strong>设备像素</strong>,物理像素由设备出厂时就已经决定并不可调节, 每个像素点由三个灯(红蓝绿)组成。</p>
+<p><img src="https://asenblog.oss-cn-guangzhou.aliyuncs.com/PhysicalPixel.jpeg" class="lazyload" data-srcset="https://asenblog.oss-cn-guangzhou.aliyuncs.com/PhysicalPixel.jpeg" srcset="data:image/png;base64,666" alt="物理像素"></p>
+<h3 id="逻辑像素"><a href="#逻辑像素" class="headerlink" title="逻辑像素"></a>逻辑像素</h3><p>逻辑像素是一个<strong>相对</strong>像素,也可以称为<strong>设备无关像素(device independent pixels简写dip)</strong>,为什么需要逻辑像素呢,因为如果使用物理像素做适配的话,那么就要根据不同设备的物理像素都做一套适配,这很显然是不可行的,通常逻辑像素会由系统映射到对应的物理像素,因此,一个逻辑像素不一定等于1个物理像素,根据分辨和ppi大小,可能一个逻辑像素最终会对应到多个物理像素。</p>
+<p>举个例子:<br>3x4的L型字分别放到1个5x6的屏幕和10x12的屏幕上</p>
+<p><img src="https://asenblog.oss-cn-guangzhou.aliyuncs.com/L.png" class="lazyload" data-srcset="https://asenblog.oss-cn-guangzhou.aliyuncs.com/L.png" srcset="data:image/png;base64,666" alt="逻辑像素"></p>
+<p>如果没有逻辑像素,那么放到大屏幕上就会变得非常小,所以我们需要定义逻辑像素,剩下的交给系统去渲染真正的物理像素。</p>
+<p><img src="https://asenblog.oss-cn-guangzhou.aliyuncs.com/L2.png" class="lazyload" data-srcset="https://asenblog.oss-cn-guangzhou.aliyuncs.com/L2.png" srcset="data:image/png;base64,666" alt="逻辑像素"></p>
+<blockquote>
+<p>css像素就是一个逻辑像素</p>
+</blockquote>
+<h3 id="分辨率"><a href="#分辨率" class="headerlink" title="分辨率"></a>分辨率</h3><p>分辨率又分为<strong>物理分利率</strong>和<strong>逻辑分辨率</strong></p>
+<h4 id="物理分辨率"><a href="#物理分辨率" class="headerlink" title="物理分辨率"></a>物理分辨率</h4><p>物理分辨率指的是硬件所支持的分辨率,假如一个显示器的物理分辨率是1928x1080,那么这个显示器就是由横向1928个物理像素点纵向由1080个物理像素点组成,是一个硬性物理指标。</p>
+<h4 id="逻辑分辨率"><a href="#逻辑分辨率" class="headerlink" title="逻辑分辨率"></a>逻辑分辨率</h4><p>逻辑分辨率指的是软件所支持的分辨率,假如一个软件大小是1024x600,屏幕的物理分辨率是1928x1080,那么系统就会把逻辑分辨率转换到对应的1928x1080上。</p>
+<blockquote>
+<p>以iphone x 为例,逻辑分辨率为375x812,物理分辨率为1125x2436,那么1个逻辑像素就等于3个物理像素。</p>
+</blockquote>
+<h3 id="ppi"><a href="#ppi" class="headerlink" title="ppi"></a>ppi</h3><p>ppi(Pixels Per Inch)翻译过来就是<strong>每英寸像素密度</strong>,两块同样大小的屏幕,分辨率同等的情况下,ppi越高,显示出来的图像越细腻。</p>
+<p>ppi的换算公式如下</p>
+<blockquote>
+<p>ppi=√((屏幕横向长度<sup>2</sup>+屏幕纵向长度<sup>2</sup>)/屏幕对线长度)</p>
+</blockquote>
+<h3 id="dpr"><a href="#dpr" class="headerlink" title="dpr"></a>dpr</h3><p>dpr(device Pixel Ratio),也就是<strong>设备像素比</strong>,在浏览器中,可以通过以下代码获取:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.devicePixelRatio</span><br></pre></td></tr></table></figure>
 
-<h2 id="使用cnpm"><a href="#使用cnpm" class="headerlink" title="使用cnpm"></a>使用cnpm</h2><p>npm的命令,cnpm都是支持的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cnpm install</span><br><span class="line">cnpm init</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+<h2 id="css像素"><a href="#css像素" class="headerlink" title="css像素"></a>css像素</h2><p>css像素就是一个逻辑像素,要了解CSS像素首先要了解一个浏览器的属性,这个属性名叫做<strong>devicePixelRatio</strong>,就是<strong>物理像素和设备独立像素的比例</strong>。</p>
+<p>如果这个属性值为1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">则1个css像素&#x3D;1个物理像素的大小。</span><br></pre></td></tr></table></figure>
 
+<p>属性值为2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">则1个css像素&#x3D;2个物理像素的大小。</span><br></pre></td></tr></table></figure>
+
+<p>如此类推</p>
+<h2 id="viewport"><a href="#viewport" class="headerlink" title="viewport"></a>viewport</h2><p>viewport也就是视口,在移动端中,会分为三个概念:</p>
+<ul>
+<li>layout viewport<br>布局视口,也就是整个布局页面的视口</li>
+<li>visual viewport<br>就是当前设备视觉视口</li>
+<li>idea viewport<br>理想视口,也就是当前设备的最佳视口。</li>
+</ul>
+<p><img src="https://asenblog.oss-cn-guangzhou.aliyuncs.com/phone-viewport-min.png" class="lazyload" data-srcset="https://asenblog.oss-cn-guangzhou.aliyuncs.com/phone-viewport-min.png" srcset="data:image/png;base64,666" alt="viewport"></p>
+<p>它们的关系如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">视觉视口(visual viewport) &#x3D; 理想视口(ideal viewport) &#x2F; 当前缩放值(initial-scale)</span><br><span class="line">当前缩放值(initial-scale) &#x3D; 理想视口(ideal viewport) &#x2F;视觉视口(visual viewport)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>可以把布局视口当成一张画,视觉视口当成一个放大镜,用户通过这个放大镜去看画的一部分,当这幅画的大小刚好和放大镜一样时,那么放大镜的内容就是整幅画的内容,当画的内容大小超过放大镜时,就需要移动或者缩放去查看,而理想视口就是刚好视觉视口和布局视口1:1,这时候不需要放大和移动。</p>
+</blockquote>
+<p>在移动端浏览器中,这个布局视口默认大小为980,用户可以移动或缩放视觉视口,这么做的原因是因为要兼容没有根据手机设计的网站而做的兼容。</p>
+<p>以下这个meta标签是用来控制这个视觉视口的:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1, maximum-scale&#x3D;1&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这个meta标签只会在移动端生效</p>
+<p>再来看看viewport常用的有哪些属性值:</p>
+<p>|属性|作用|<br>|——–|—–:|:—-:|<br>|width|设备的视觉视口的宽度|<br>|initial-scale|设备缩放倍数|<br>|maximum-scale|最大缩放倍数<br>|minimum-scale|最小缩放倍数<br>|user-scalable|用户是否可缩放</p>
+<h2 id="适配方案"><a href="#适配方案" class="headerlink" title="适配方案"></a>适配方案</h2><p>移动端网页的适配主要会用到以下几个技术</p>
+<ul>
+<li>meta的name=viewport去控制视觉视口</li>
+<li>@media</li>
+<li>%</li>
+<li>vh,vw</li>
+<li>flex</li>
+</ul>
+<p>现在的移动端完全可以用以下组合实现布局:</p>
+<ul>
+<li>直接使用viewport。</li>
+<li>单位直接用px即可,特殊的也可使用%。</li>
+<li>布局什么的用flex可以搞定大部分场景。</li>
+<li>需要自适或者比例的用vw或vh就可以。</li>
+<li>针对不同的机型的特殊适配用媒体查询即可。</li>
+</ul>
+<p>下面介绍的这个方案是针对特殊场景的</p>
+<ul>
+<li>按比例1:1,也就是所有移动端看起来比例都要一致</li>
+</ul>
+<h3 id="固定宽度适配"><a href="#固定宽度适配" class="headerlink" title="固定宽度适配"></a>固定宽度适配</h3><p>这个方案实现起来是最简单的,主要是利用viewport这个标签就可以了,主要原理是固定视觉窗口宽度,然后利用缩放值达到页面自动缩放比例,从而适配各个端，这个方案适合只有一套移动视觉稿但要适配多端且1:1的情况下。</p>
+<p>下面就来看下如何实现:</p>
+<p>首先假设设计给我们的是一套iphone X为基准的视觉稿1125 × 2436,这个是iphone X的物理分辨率,然而iphone X的逻辑分辨率是375 × 812,所以我们要把meta的width设置为375(<strong>因为iphone X的dpr是3,所以实际换算到我们CSS的像素是1125/3=375</strong>)然后再设置user-scalable为false即可,这样在不同的设备里就会自动缩放,缩放关系为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当前缩放值(initial-scale) &#x3D; 理想视口(ideal viewport) &#x2F;视觉视口(visual viewport)</span><br></pre></td></tr></table></figure>
+
+<h4 id="添加meta标签"><a href="#添加meta标签" class="headerlink" title="添加meta标签"></a>添加meta标签</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;375,user-scalable&#x3D;no&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>下面是实现的效果截图</p>
+<p><img src="https://asenblog.oss-cn-guangzhou.aliyuncs.com/iphone-scale-min.png" class="lazyload" data-srcset="https://asenblog.oss-cn-guangzhou.aliyuncs.com/iphone-scale-min.png" srcset="data:image/png;base64,666" alt="固定宽度适配"></p>
+<ul>
+<li>iphone5的缩放比为:320/375=0.8533,那么1px=0.8533px</li>
+<li>iphone8的放缩比为:375/375=1,那么1px=1px</li>
+<li>iphone8 plus的缩放比为:414/375=1.104,那么1px=1.104px</li>
+</ul>
+<p>移动端的浏览器会根据缩放比例自动缩放,这样就能到达一套设计稿,多端适配的效果(<strong>如果你做过小程序的话,这个方案其实跟小程序的rpx是一样的原理</strong>)</p>
+<h3 id="vw方案"><a href="#vw方案" class="headerlink" title="vw方案"></a>vw方案</h3><p>vw是一个相对单位,它是相对于视觉视口的宽度的,1vw就等于视觉视口宽度的1%,也就是说如果视觉视口的宽度为375px,那么1vw=3.75px,以此类推。</p>
+<p>使用vw方案只需要写一个css预处理的函数就可以了,不会像rem布局那样需要js和css的耦合在一起,以下是sass示例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$vw_base: 375; </span><br><span class="line">@function vw($px) &#123;</span><br><span class="line">    @return ($px &#x2F; 375) * 100vw;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>比如我们们设计稿的基准就是375,那我们只需要按照这个基准去换算vw的比例即可，如果要针对不同的机型调整字体大小,只需要增加对应的媒体查询和rem作为font-size即可。</p>
+<p>效果图如下:<br><img src="https://asenblog.oss-cn-guangzhou.aliyuncs.com/iphone-vw-min.png" class="lazyload" data-srcset="https://asenblog.oss-cn-guangzhou.aliyuncs.com/iphone-vw-min.png" srcset="data:image/png;base64,666" alt="vw适配"></p>
+<blockquote>
+<p>这里为什么没有介绍rem布局方案,是因为rem本身就不是用来布局的,是因为早些年的viewport是苹果提出来的,安卓的兼容性比较差,所以才用来rem做适配,而且手淘开发的Flexible.js是用来解决和兼容1px border的问题,这是一个追求体验极致的方案,若没有这种需求,完全是可以使用px+viewport或者vw去做适配,rem并不是唯一的移动端布局方案。</p>
+</blockquote>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li>物理像素逻辑像素:<a target="_blank" rel="noopener" href="https://blog.specctr.com/pixels-physical-vs-logical-c84710199d62">https://blog.specctr.com/pixels-physical-vs-logical-c84710199d62</a></li>
+<li>PPK像素理论:<a target="_blank" rel="noopener" href="https://www.quirksmode.org/blog/archives/2010/04/a_pixel_is_not.html">https://www.quirksmode.org/blog/archives/2010/04/a_pixel_is_not.html</a></li>
+<li>vw排版:<a target="_blank" rel="noopener" href="https://aotu.io/notes/2017/04/28/2017-4-28-CSS-viewport-units/index.html">https://aotu.io/notes/2017/04/28/2017-4-28-CSS-viewport-units/index.html</a></li>
+<li>vw和rem的看法:<a target="_blank" rel="noopener" href="https://www.chrisyue.com/please-dont-use-rem-to-implement-flexible-layout-in-mobile-device.html">https://www.chrisyue.com/please-dont-use-rem-to-implement-flexible-layout-in-mobile-device.html</a></li>
+<li>为什么很多web项目还是使用 px，而不是 rem？ - 水映天辙的回答 - 知乎:<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/313971223/answer/1247564603">https://www.zhihu.com/question/313971223/answer/1247564603</a></li>
+</ul>
 
   
   
@@ -411,7 +507,7 @@
               
                 <p>
                   本文永久链接是：
-                <a href=http://asen.pro/post/2020111349537/>http://asen.pro/post/2020111349537/</a></p>
+                <a href=http://asen.pro/post/2020111661359/>http://asen.pro/post/2020111661359/</a></p>
               
             
           </blockquote>
@@ -428,10 +524,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-16T13:16:37+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-23T18:24:39+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年11月16日</p>
+    <p>更新于：2020年11月23日</p>
   </a>
 </div>
 
@@ -440,7 +536,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/npm/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>npm</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>移动端基础概念</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>移动端适配</p></a></div>
 
 
         
@@ -471,19 +567,11 @@
   
     <div class="prev-next">
       
-        <a class='prev' href='/post/2020111661359/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>移动端适配方案</p>
-          <p class='content'>基础概念物理像素物理像素也可以叫做设备像素,物理像素由设备出厂时就已经决定并不可调节, 每个像素点由三个灯(红蓝绿)组成。
-
-逻辑像素逻辑像素是一个相对像素,也可以称为设备无关像素(device...</p>
-        </a>
       
-      
-        <a class='next' href='/post/202011134665/'>
-          <p class='title'>windows下nvm管理node版本<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>nvm是什么?nvm(NodeJs version Manger) 是用于管理NodeJs版本控制器,用于切换NodeJs版本。
-nvm安装和配置
-找到nvm-noinstall.zip然后下载...</p>
+        <a class='next' href='/post/2020111349537/'>
+          <p class='title'>cnpm安装教程<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>cnpm是什么？cnpm是阿里巴巴开发的一个包含国内镜像源的npm,使用cnpm可以快速下载npm上的包。
+安装cnpm1npm install -g cnpm --registry&#x3D;...</p>
         </a>
       
     </div>
@@ -526,7 +614,7 @@ nvm安装和配置
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#cnpm%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">cnpm是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85cnpm"><span class="toc-text">安装cnpm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8cnpm"><span class="toc-text">使用cnpm</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-text">基础概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%83%8F%E7%B4%A0"><span class="toc-text">物理像素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E5%83%8F%E7%B4%A0"><span class="toc-text">逻辑像素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E8%BE%A8%E7%8E%87"><span class="toc-text">分辨率</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%88%86%E8%BE%A8%E7%8E%87"><span class="toc-text">物理分辨率</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E5%88%86%E8%BE%A8%E7%8E%87"><span class="toc-text">逻辑分辨率</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ppi"><span class="toc-text">ppi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dpr"><span class="toc-text">dpr</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css%E5%83%8F%E7%B4%A0"><span class="toc-text">css像素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#viewport"><span class="toc-text">viewport</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88"><span class="toc-text">适配方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E5%AE%BD%E5%BA%A6%E9%80%82%E9%85%8D"><span class="toc-text">固定宽度适配</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0meta%E6%A0%87%E7%AD%BE"><span class="toc-text">添加meta标签</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vw%E6%96%B9%E6%A1%88"><span class="toc-text">vw方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-text">参考链接</span></a></li></ol>
     </div>
   </section>
 
@@ -546,7 +634,7 @@ nvm安装和配置
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="cnpm安装教程";
+  pdata.postTitle="移动端适配方案";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
